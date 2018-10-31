@@ -20,7 +20,7 @@ from myapp import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^captcha/',include('captcha.urls')),
-    url(r'^accounts/',include('registration.backends.hmac.urls'))
+    url(r'^accounts/',include('registration.backends.hmac.urls')),
     url(r'^list/$',views.listing),
     url(r'^$',views.index),
     url(r'^(\d+)/(\w+)/$',views.index),

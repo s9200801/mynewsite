@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'captcha',
+    'registration'
 ]
 
 MIDDLEWARE = [
@@ -89,7 +90,7 @@ DATABASES = {
 
 EMAIL_BACKED = 'django_mailgun.MailgunBacked'
 MAILGUN_ACCESS_KEY = 'fcec0d9dfe15f00240e67d5b89d55e58-4836d8f5-a68d041f'
-MAILGUN_SERVER_NAME = 'stanleywang.com.tw'
+MAILGUN_SERVER_NAME = 'stanleywang.nctu.me'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
