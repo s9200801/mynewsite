@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}註冊帳號{% endblock %}
+
+{% block content %}
+<div class='container'>
+	{% for message in messages %}
+		<div class='alert alert-{{message.tags}}' id='usertest'>{{message}}</div>
+	{% endfor %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<div class='card text-white bg-info mb-3'>
+				<div class='card-header' align=center>
+					<h3>感謝你的註冊</h3>
+					<p>請到信箱啟用帳號</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+

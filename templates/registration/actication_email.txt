@@ -1,0 +1,4 @@
+感謝你的註冊
+使用者:{{user}}
+認證連結網址:http://{{site}}/accounts/activate/{{activation_key}}
+請於{{expiration_days}}天內點擊認證

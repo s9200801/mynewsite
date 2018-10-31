@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}我有話要說{% endblock %}
+{% block content %}
+<div class='container'>
+<div class='row'>
+	<div class='col-mod-12'>
+		<div class='card'>
+			<div class='card-header' align=center>
+			<h3>~"~  = =  ~"~</h3>
+			</div>
+		</div>
+	</div>
+</div>
+	{% for p in posts %}
+	{% cycle "<div class='row'> <div class='col-md-6'>" "<div class='col-md-6'>" %}
+		<div class='{% cycle "card text-white bg-primary mb-3" "card text-white bg-info mb-3" "card text-white bg-warning mb-3" "card text-white bg-success mb-3" %}'>
+			<div class='card-header'>
+				<table width='100%'>
+					<tr>
+						<td>
+						{{p.nickname}}{{p.mood}}
+						</td>
+						<td align=right>
+							<i><small>{{p.pub_time}}</small></i>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class='card-body'>
+				{{p.message|linebreaks}}
+			</div>
+		</div>
+	</div>
+	{% cycle "" "</div>"%}
+{% endfor %}
+</div>
+</div>
+{% endblock %}

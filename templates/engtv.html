@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}english news{% endblock %}
+{% block tvname %}{{tv.name}}{% endblock %}
+{% block menu %}
+	<ul class='nav navbar-nav'>
+		<li class='active'><a href='/'>HOME</a></li>
+		<li><a href='{% url 'tv-url' 0 %}'>DonSen</a></li>
+		<li><a href='{% url 'tv-url' 1 %}'>ThreeLee</a></li>
+		<li><a href='{% url 'tv-url' 2 %}'>Zhou4</a></li>
+		<li><a href='{% url 'tv-url' 3 %}'>ZhouTien</a></li>
+		<li><a href='/'>電視直播新聞</a></li>
+	</ul>
+{% endblock %}
+{% block content %}
+<div class='container'>
+	<div id='tvcode' align='center'>
+		<iframe width="560" height="315" src="{{tv.tvcode}}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		
+	</div>
+</div>
+{% endblock %}
+

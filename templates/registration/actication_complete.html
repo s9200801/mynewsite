@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}分享日記{% endblock %}
+
+{% block content %}
+<div class='container'>
+	{% for message in messages %}
+		<div class='alert alert-{{message.tags}}' id='usertest'>{{message}}</div>
+	{% endfor %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<div class='card text-white bg-info mb-3'>
+				<div class='card-header' align=center>
+					<h3>帳號啟用成功，感謝你的註冊</h3>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+

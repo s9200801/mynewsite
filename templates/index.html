@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block title %}中古{% endblock %}
+
+{% block content %}
+<div class='container'>
+{% for  message in messages %}
+	<div class='alert alert-{{message.tags}}' id='usertest'>{{message}}</div>
+{% endfor %}
+
+
+
+	<div class='row'>
+		<div class='col-md-12'>
+			<div class='card text-white bg-info mb-3'>
+				<h3>{{username|default:"我"}}的私人日記</h3>
+			</div>
+		</div>
+	</div>
+	{% for diary in diaries %}
+	{% cycle "<div class='row'>" "" "" %}
+		<div class='col-md-4'>
+			<div class='card text-white bg-primary mb-3'>
+				<div class='card-header' align=center>
+					{{diary.ddate}}
+				</div>
+				<div class='card-body'>
+					{{diary.note|linebreaks}}
+				</div>
+				<div class='card-footer'>
+					今日花費:{{diary.budget}}元，體重{{diary.weight}}公斤
+				</div>
+			</div>
+		</div>
+	</div>
+	{% cycle "" "" "</div>"%}
+	{% empty %}
+		<h3><em>登入才可以使用日記</em></h3>
+	{% endfor %}<br>
+	{% if username %}
+	歡迎:{{username}}
+	{% endif %}
+</div>
+{% endblock %}
+
