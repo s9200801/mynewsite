@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from myapp import models
-from captcha.fields import CaptchaField
+#from captcha.fields import CaptchaField
 
 
 class ContactForm(forms.Form):
@@ -18,9 +18,9 @@ class ContactForm(forms.Form):
     user_school=forms.BooleanField(label='是否在學(勾選為是)',required=False)
     user_email=forms.EmailField(label='電子信箱')
     user_message=forms.CharField(label='意見',widget=forms.Textarea)
-    
+
 class PostForm(forms.ModelForm):
-    captcha=CaptchaField(label='確定你不是機器人')
+    #captcha=CaptchaField(label='確定你不是機器人')
     class Meta:
         model=models.Post
         fields=['mood','nickname','message','del_pass']
@@ -30,16 +30,16 @@ class PostForm(forms.ModelForm):
             'message':'心情留言',
             'del_pass':'設定密碼',
         }
-        
+
 class LoginForm(forms.Form):
     user_name=forms.CharField(label='姓名',max_length=10)
     password=forms.CharField(label='密碼',widget=forms.PasswordInput())
-    
+
 class DateInput(forms.DateInput):
     input_type='date'
-    
+
 class DiaryForm(forms.ModelForm):
-    
+
     class Meta:
         model=models.Diary
         fields=['budget','weight','note','ddate']
@@ -52,10 +52,10 @@ class DiaryForm(forms.ModelForm):
             'note':'心情留言',
             'ddate':'日期',
         }
-        
-        
+
+
 class ProfileForm(forms.ModelForm):
-    
+
     class Meta:
         model=models.Profile
         fields=['height','male','website']
@@ -64,4 +64,4 @@ class ProfileForm(forms.ModelForm):
             'male':'是男',
             'website':'個人網站',
         }
-        
+

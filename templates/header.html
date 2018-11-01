@@ -1,44 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class='navbar-header'>
             <div class='navbar-brand' align=center>
-            分享日記
+            投票
             </div>
         </div>
-    
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        
+
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href='/'>HOME<span class="sr-only">(current)</span></a>
             </li>
-            
-            {% if username %}
             <li class="nav-item">
-                <a class="nav-link" href='/logout'>登出</a>
+                <a class="nav-link" href='/accounts/signup'>註冊</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href='/post'>張貼</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href='/contact'>聯絡管理員</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href='/login'>登入</a>
+                <a class="nav-link" href='/account/login'>登入</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href='/accounts/register'>註冊</a>
+                <a class="nav-link" href='/account/logout'>登出</a>
             </li>
-            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href='/admin'>管理</a>
             </li>
-            
-            
+
+
         </ul>
     </div>
 </nav>

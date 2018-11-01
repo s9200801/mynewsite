@@ -18,16 +18,17 @@ from django.contrib import admin
 from myapp import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^captcha/',include('captcha.urls')),
-    url(r'^accounts/',include('registration.backends.hmac.urls'))
-    url(r'^list/$',views.listing),
     url(r'^$',views.index),
+    url(r'^admin/', admin.site.urls),
+#    url(r'^captcha/',include('captcha.urls')),
+    url(r'^accounts/',include('allauth.urls')),
+    url(r'^list/$',views.listing),
     url(r'^(\d+)/(\w+)/$',views.index),
     url(r'^post/$',views.post2db),
     url(r'^contact/$',views.contact),
-    
     url(r'^login/$',views.login),
     url(r'^logout/$',views.logout),
     url(r'^userinfo/$',views.userinfo),
+    url(r'^poll/(\d+)$',views.poll,name='poll-url'),
+    url(r'^vote/(\d+)/(\d+)$',views.vote,name='vote-url'),
 ]

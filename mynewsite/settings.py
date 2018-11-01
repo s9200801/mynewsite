@@ -38,8 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'captcha',
+    'registration',
+#    'captcha',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
 ]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+AUTHENTICATION_BACKEND = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -73,6 +88,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATICFILES_ROOT = "/home/fk9200801/mynewsite/staticfiles"
 
 WSGI_APPLICATION = 'mynewsite.wsgi.application'
 
@@ -89,7 +105,7 @@ DATABASES = {
 
 EMAIL_BACKED = 'django_mailgun.MailgunBacked'
 MAILGUN_ACCESS_KEY = 'fcec0d9dfe15f00240e67d5b89d55e58-4836d8f5-a68d041f'
-MAILGUN_SERVER_NAME = 'stanleywang.com.tw'
+MAILGUN_SERVER_NAME = 'stanleywang.nctu.me'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 

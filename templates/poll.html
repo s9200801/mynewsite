@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}投票{% endblock %}
+{% block content %}
+<div class='container'>
+{% for message in messages %}
+    <div class='alert-alert-{{message.tags}}'>{{message}}</div>
+{% endfor %}
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='card text-white bg-info mb-3'>
+                <div class='card-header' align=center>{{poll.name}}</div>
+            </div>
+        </div>
+    </div>
+    {% for pollitem in pollitems %}
+        {% cycle "<div class=row>" "" "" ""%}
+            <div class='col-sm-3'>
+                <div class='card be-light ng-primary mb-3'>
+                    <div class='card-header' align=center>{{poll.name}}</div>
+                </div>
+                <div class='card-body'>
+                    {% if pollitem.image_url %}
+                        <img src='{{pollitem.image_url}}' width='100%'>
+                    {% else %}
+                        <img src='http://i.imgur.com/Ous4iGb.png' width='100%'>
+                    {% endif %}
+                </div>
+                <div class='card-footer' align=center>
+                    <h4>
+                        <a href='/vote/{{poll.id}}/{{pollitem.id}}' title='投票'><i class="far fa-heart"></i></a>
+                        &nbsp;
+                        目前票數:{{pollitem.vote}}
+                    </h4>
+                </div>
+            </div>
+        {% cycle "" "" "" "</div>" %}
+    {% endfor %}
+
+</div>
+{% endblock %}
