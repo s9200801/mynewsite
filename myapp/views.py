@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from allauth.account.decorators import verified_email_required
 import random
 # Create your views here.
 
@@ -209,6 +210,7 @@ def userinfo(request):
     html=template.render(locals())
     return HttpResponse(html)
 
+
 def poll(request,pollid):
     try:
         poll=models.Poll.objects.get(id=pollid)
@@ -220,6 +222,8 @@ def poll(request,pollid):
     html=template.render(context=locals(),request=request)
     return HttpResponse(html)
 
+@login_required
+@verified_email_required
 def vote(request,pollid,pollitemid):
     try:
         pollitem=models.PollItem.objects.get(id=pollitemid)

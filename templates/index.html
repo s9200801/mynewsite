@@ -40,7 +40,11 @@
 	</div>
 	{% cycle "" "" "</div>"%}
 	{% empty %}
-		<h3><em>登入才可以使用日記</em></h3>
+	    {% if user.is_authenticated %}
+		    <h3><em>按張貼來寫第一篇日記吧</em></h3>
+		{% else %}
+		    <h3><em>登入才可以使用日記</em></h3>
+		{% endif %}
 	{% endfor %}<br>
 
 	<div class='row'>

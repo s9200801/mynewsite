@@ -103,9 +103,18 @@ DATABASES = {
     }
 }
 
-EMAIL_BACKED = 'django_mailgun.MailgunBacked'
-MAILGUN_ACCESS_KEY = 'fcec0d9dfe15f00240e67d5b89d55e58-4836d8f5-a68d041f'
-MAILGUN_SERVER_NAME = 'stanleywang.nctu.me'
+#EMAIL_BACKED = 'django_mailgun.MailgunBacked'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL ="ffkk9200801@gmail.com"
+EMAIL_HOST_PASSWORD = 'a8989810'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+#MAILGUN_ACCESS_KEY = 'fcec0d9dfe15f00240e67d5b89d55e58-4836d8f5-a68d041f'
+#MAILGUN_SERVER_NAME = 'stanleywang.nctu.me'
+#DEFAULT_FROM_EMAIL = 'postmaster@stanleywang.nctu.me'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
