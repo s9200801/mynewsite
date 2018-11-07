@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath mynewsite mynewsite.wsgi
